@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Exit
+  - PlayerBullet
+  - PickUp
   layers:
   - Default
   - TransparentFX

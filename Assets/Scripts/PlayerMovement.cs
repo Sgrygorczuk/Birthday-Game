@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 3;
     public bool isInArena = false;
 
+    public float timeLeft = 10.0f;
+    
     // Start is called before the first frame update
     private void Start() {
         _rigRigidbody2D = GetComponent<Rigidbody2D>();
@@ -34,4 +37,20 @@ public class PlayerMovement : MonoBehaviour
         
         _rigRigidbody2D.velocity = new Vector2(_xVelocity, _yVelocity) * speed; 
     }
+
+    public void SpeedMul(float mul) {
+        StartCoroutine(SpeedMulCo(mul));
+    }
+    
+    private IEnumerator SpeedMulCo(float mul) {
+        float ogSpeed = speed;
+        speed *= mul;
+
+        // Pause execution for 2 seconds
+        yield return new WaitForSeconds(2.0f);
+
+        speed = ogSpeed;    
+    }
+    
+    
 }
