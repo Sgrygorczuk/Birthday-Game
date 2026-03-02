@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using Random = UnityEngine.Random;
+using Unity.Burst;
 
 public class NPCController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class NPCController : MonoBehaviour
     private AIDestinationSetter _aiDestinationSetter;
     private AIPath _aiPath;
     private GameObject _spawnPoints;
+    public float health = 3f;
+    public float attack = 4f;
 
     // --- TARGETS & POINTS ---
     // These track where the NPC is, where it’s going, and potential destinations

@@ -8,6 +8,8 @@ TagManager:
   - Exit
   - PlayerBullet
   - PickUp
+  - TalkZone
+  - Camera
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerAltShoot : MonoBehaviour
+public class PlayerShoot : MonoBehaviour
 {
     // Prefab 
     public GameObject preFab;
@@ -8,9 +8,10 @@ public class PlayerAltShoot : MonoBehaviour
     public Transform bulletSpawn;
 
     // Timer 
-    private const float Timer = 0.5f;
+    public float Timer = 0.5f;
     private float _currentTime = 0.5f;
     private bool _canShoot = true;
+    public float attack = 1f;
 
     private void Update()
     {
@@ -37,11 +38,12 @@ public class PlayerAltShoot : MonoBehaviour
     private void SpawnBullet()
     {
         // If the player can't shoot or is clicking a different key don't do anything 
-        if (!Input.GetKey(KeyCode.Mouse1) || !_canShoot) { return; }
+        if (!Input.GetKey(KeyCode.Mouse0) || !_canShoot) { return; }
         // Create a copy of the bullet 
         GameObject bullet = Instantiate(preFab, bulletSpawn.position, Quaternion.identity);
         // Connect the bullet to a trash collector object 
         bullet.transform.SetParent(bulletTrash);
+        bullet.GetComponent<Bullet>().dmg = attack;
         // Stop player from being able to shoot 
         _canShoot = false; 
 

@@ -85,6 +85,7 @@ MonoBehaviour:
   speed: 6
   deathTime: 1.5
   playerBullet: 1
+  dmg: 1
 --- !u!50 &6979563575730180229
 Rigidbody2D:
   serializedVersion: 4

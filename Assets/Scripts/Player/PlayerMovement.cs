@@ -7,10 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerDialogue _playerDialogue;
     private float _xVelocity = 0f;
     private float _yVelocity = 0f;
-    public float speed = 3;
+    public float speed = 3.0f;
     public bool isInArena = false;
-
-    public float timeLeft = 10.0f;
     
     // Start is called before the first frame update
     private void Start() {
@@ -38,18 +36,15 @@ public class PlayerMovement : MonoBehaviour
         _rigRigidbody2D.velocity = new Vector2(_xVelocity, _yVelocity) * speed; 
     }
 
-    public void SpeedMul(float mul) {
-        StartCoroutine(SpeedMulCo(mul));
+    public void SpeedChange(float newSpeed) {
+        StartCoroutine(SpeedChangeCo(newSpeed));
     }
-    
-    private IEnumerator SpeedMulCo(float mul) {
-        float ogSpeed = speed;
-        speed *= mul;
 
+    private IEnumerator SpeedChangeCo(float newSpeed) {
         // Pause execution for 2 seconds
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
 
-        speed = ogSpeed;    
+        speed = newSpeed;    
     }
     
     

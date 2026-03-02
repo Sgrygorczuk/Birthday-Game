@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
     //Flag and Timer 
     public float deathTime = 1.5f;   //How long before the bullet dies 
     public bool playerBullet = true; //Is the bullet used by player or enemy 
+    public float dmg = 1f;
 
     //==================================================================================================================
     // Base Method  
@@ -57,6 +58,10 @@ public class Bullet : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
     }
 
+    public void SetDmg(float newDmg) {
+        dmg = newDmg;
+    }
+
     //Waits till timer is out then destroys the bullet 
     private IEnumerator Death()
     {
@@ -64,10 +69,16 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.transform.CompareTag("Enemy")) {
-            other.gameObject.SetActive(false);
-            GameController.Instance.UpdateScore();
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.transform.CompareTag("Enemy")) {
+            NPCController enemy = collision.transform.GetComponent<NPCController>();
+            enemy.health -= dmg;
+
+            if (enemy.health <= 0)
+            {
+                collision.gameObject.SetActive(false);
+                GameController.Instance.UpdateScore();
+            }
         }
         Destroy(gameObject); 
     }
