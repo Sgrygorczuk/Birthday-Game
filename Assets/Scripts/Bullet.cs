@@ -68,6 +68,7 @@ public class Bullet : MonoBehaviour
         if (other.transform.CompareTag("Enemy")) {
             other.gameObject.SetActive(false);
             GameController.Instance.UpdateScore();
+            RaccoonManager.Instance.ShowRaccoon();
         }
         Destroy(gameObject); 
     }

@@ -17,9 +17,14 @@ public class NPCController : MonoBehaviour
     private readonly List<GameObject> _points = new List<GameObject>(); // List of all possible spawn/target points
     public GameObject startPoint;    // Where the NPC just came from
     public GameObject destination;   // The final target point
+    
+    private Animator _animator;
 
     private void Start() 
     {
+        _animator = GetComponent<Animator>();
+        _animator.Play(new string[] { "Snake", "Bird" }[Random.Range(0, 2)]);
+        
         // 1. Link the code to the components attached to this NPC
         _aiDestinationSetter = GetComponent<AIDestinationSetter>();
         _aiPath = GetComponent<AIPath>();

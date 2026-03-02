@@ -10,6 +10,8 @@ public class PlayerDie : MonoBehaviour {
         {
             // Turn on the canvas and turn off the player game object 
             canvas.gameObject.SetActive(true);
+            AudioManager.Instance.PlaySound("Die");
+            MusicController.Instance.FadeOut();
             gameObject.SetActive(false);
         }
     }
