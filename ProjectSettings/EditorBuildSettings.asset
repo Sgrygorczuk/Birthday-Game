@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Arena_1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/HubLevel.unity
+    guid: f75dcdb9bf8a1cd45a73fee947bce6b7
+  - enabled: 1
+    path: Assets/Scenes/RafLevel.unity
+    guid: 8f391bf2e01df0e46abfbaaffcaa77be
+  - enabled: 1
+    path: Assets/Scenes/Seb_Arena.unity
+    guid: 8bd8866daddffca428fcf67556d49109
+  - enabled: 1
+    path: Assets/Scenes/Seb_Hub.unity
+    guid: 3fb8f2a5a825dd14e9df901c2ef60768
   m_configObjects: {}
